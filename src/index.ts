@@ -9,12 +9,8 @@ async function init() {
 
   app.use(express.json());
 
-  app.get("/", (req, res) => {
-    res.json({ message: "Server is up and running" });
-  });
-
-  app.use(
-    "/graphql",
+  app.get(
+    "/",
     expressMiddleware(await createApolloGraphqlServer(), {
       context: async ({ req }) => {
         // @ts-ignore
