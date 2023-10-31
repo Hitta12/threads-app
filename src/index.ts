@@ -14,7 +14,7 @@ async function init() {
   });
 
   app.use(
-    "/",
+    "/graphql",
     expressMiddleware(await createApolloGraphqlServer(), {
       context: async ({ req }) => {
         // @ts-ignore
